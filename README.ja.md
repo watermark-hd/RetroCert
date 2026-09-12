@@ -5,6 +5,9 @@
 
 *(English version: [README.md](README.md))*
 
+証明書や暗号の知識がなくても運用できるよう、実際の操作だけをまとめた
+[OPERATIONS.md](OPERATIONS.md) も用意しています。
+
 ## 全体イメージ
 
     古いMac
