@@ -92,7 +92,7 @@ Thunderbirdに乗り換えられている（両者ともFirefox/Mozilla系で、
 
     開発用Mac（秘密鍵はここだけに存在。VPSには一切置かない）
       ↓ 秘密鍵で manifest.json / クライアント配布物に署名
-    署名済みファイル (manifest.json + .sig + certs/ + retrocert-client.tar.gz + .sig)
+    署名済みファイル (manifest.json + .sig + certs/ + retrocert-client.{tar.gz,zip} + .sig)
       ↓ アップロード（署名済みファイルのみ。秘密鍵は含めない）
     VPS（署名済みファイルを置いて配信するだけ。秘密鍵は一切持たない）
       ↓ HTTP/HTTPS

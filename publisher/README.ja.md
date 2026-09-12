@@ -8,7 +8,7 @@
 
     開発用Mac（このpublisher/を実行する場所。秘密鍵はここだけに存在）
       ↓ 秘密鍵で manifest.json / クライアント配布物に署名
-    署名済みの manifest.json + .sig + certs/ + retrocert-client.tar.gz + .sig
+    署名済みの manifest.json + .sig + certs/ + retrocert-client.{tar.gz,zip} + .sig
       ↓ rsync 等でアップロード（ここには秘密鍵を含めない）
     VPS（署名済みの静的ファイルを置いて配信するだけ。秘密鍵は一切置かない）
       ↓ HTTP/HTTPS
@@ -42,8 +42,14 @@
 
        python3 package_client.py
 
-   → `dist/retrocert-client.tar.gz` とその署名 `.sig` が生成されます。
-      利用者はこれを安全な経路（現行PC等）で入手し、署名検証後に古い機種へ転送します。
+   → `dist/retrocert-client.tar.gz` と `dist/retrocert-client.zip`（それぞれの
+      署名 `.sig` も含む）が生成されます。両方に同じ内容が入っており、
+      `bootstrap_ca.pem`（クライアント自身のHTTPS通信の検証に必須。手動で
+      アーカイブを作る場合は入れ忘れないこと）も同梱されます。`.zip`を
+      用意している理由は、Windowsのエクスプローラーは`.tar.gz`をダブル
+      クリックでネイティブに解凍できないため（`.zip`ならmacOS/Windowsどちらも
+      標準機能で開けます）。利用者はどちらかを安全な経路（現行PC等）で入手し、
+      署名検証後に古い機種へ転送します。
 
 3. `dist/` 配下だけをVPS上の静的配信ディレクトリ（nginx等）へアップロードする
 

@@ -10,7 +10,7 @@ lives.
 
     Dev machine (where you run publisher/. The private key lives ONLY here)
       ↓ sign manifest.json / the client distribution with the private key
-    Signed manifest.json + .sig + certs/ + retrocert-client.tar.gz + .sig
+    Signed manifest.json + .sig + certs/ + retrocert-client.{tar.gz,zip} + .sig
       ↓ upload via rsync etc. (never include the private key here)
     VPS (just serves the signed static files — holds no private key at all)
       ↓ HTTP/HTTPS
@@ -50,9 +50,15 @@ creates) to the VPS. Only upload the contents of `dist/`.
 
        python3 package_client.py
 
-   → produces `dist/retrocert-client.tar.gz` and its `.sig`. Users should
-      obtain this over a channel they already trust (e.g. a modern PC),
-      verify the signature, and then transfer it to the old machine.
+   → produces both `dist/retrocert-client.tar.gz` and
+      `dist/retrocert-client.zip` (plus a `.sig` for each). Both contain the
+      same files, including `bootstrap_ca.pem` (required for the client's
+      own outgoing HTTPS requests — don't forget it if you ever build the
+      archive by hand). `.zip` is there because Windows Explorer can't
+      natively extract `.tar.gz` by double-click, while both macOS and
+      Windows can open `.zip` natively. Users should obtain either archive
+      over a channel they already trust (e.g. a modern PC), verify the
+      signature, and then transfer it to the old machine.
 
 3. Upload only `dist/` to the VPS's static-file directory (e.g. served by
    nginx):

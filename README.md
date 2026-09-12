@@ -112,7 +112,7 @@ tampered with or spoofed, the following mechanism keeps it safe anyway:
 
     Dev machine (the private key lives ONLY here — never on the VPS)
       ↓ sign manifest.json / the client distribution with the private key
-    Signed files (manifest.json + .sig + certs/ + retrocert-client.tar.gz + .sig)
+    Signed files (manifest.json + .sig + certs/ + retrocert-client.{tar.gz,zip} + .sig)
       ↓ upload (signed files only — the private key is never uploaded)
     VPS (just serves the signed files — holds no private key at all)
       ↓ HTTP/HTTPS
