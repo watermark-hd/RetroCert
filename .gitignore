@@ -1,0 +1,9 @@
+# 秘密鍵・ビルド生成物は絶対にコミットしない
+publisher/keys/
+publisher/dist/
+
+__pycache__/
+*.pyc
+
+# クライアント側のローカル状態（実行時に生成される）
+client/*.der
