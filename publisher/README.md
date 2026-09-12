@@ -48,7 +48,15 @@ creates) to the VPS. Only upload the contents of `dist/`.
 2. Build the client distribution archive (for distributing the whole
    runnable toolkit):
 
+       echo 'VPS_BASE_URL = "https://<your-vps>/retrocert/"' > deploy_config.py
        python3 package_client.py
+
+   `deploy_config.py` is git-ignored and lets you bake your real
+   `VPS_BASE_URL` into the packaged `config.py` without editing
+   `client/config.py` itself (which stays a placeholder template in the
+   repo). If you skip this step, the package ships with the placeholder
+   URL — which is intentional for a plain template build, but not usable
+   as-is.
 
    → produces both `dist/retrocert-client.tar.gz` and
       `dist/retrocert-client.zip` (plus a `.sig` for each). Both contain the

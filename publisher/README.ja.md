@@ -40,7 +40,15 @@
 
 2. クライアント配布アーカイブを生成する（実行ファイル一式の配布用）
 
+       echo 'VPS_BASE_URL = "https://<あなたのVPS>/retrocert/"' > deploy_config.py
        python3 package_client.py
+
+   `deploy_config.py`はgitignore対象で、`client/config.py`自体は
+   プレースホルダーのテンプレートのままにしつつ、パッケージ内の
+   config.pyだけ本番の`VPS_BASE_URL`に差し替えるための仕組みです。
+   これを省略すると、パッケージにはプレースホルダーURLが入ります
+   （テンプレートをそのまま試す場合はこれで良いが、実運用ではそのまま
+   使えません）。
 
    → `dist/retrocert-client.tar.gz` と `dist/retrocert-client.zip`（それぞれの
       署名 `.sig` も含む）が生成されます。両方に同じ内容が入っており、

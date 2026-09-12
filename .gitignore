@@ -1,6 +1,8 @@
 # 秘密鍵・ビルド生成物は絶対にコミットしない
 publisher/keys/
 publisher/dist/
+# 本番用VPS_BASE_URL等を書くローカル上書き設定（package_client.py参照）
+publisher/deploy_config.py
 
 __pycache__/
 *.pyc
