@@ -27,6 +27,12 @@ VPS側は証明書セットとバージョン情報を静的に置いておく�
 不特定多数の古い機種ユーザーに使ってもらうことを想定しており、
 クライアント本体（実行ファイル一式）自体もVPSから配布します。
 
+**ダウンロード:** このプロジェクト自身のVPS向けに設定済みのクライアントは
+[oldmac.policy-log.jp/apps/retrocert](https://oldmac.policy-log.jp/apps/retrocert)
+にあります。同じ `RetroCert.zip` は、この GitHub の
+[Releasesページ](https://github.com/watermark-hd/RetroCert/releases)からも
+入手できます（上部の緑の「Code」ボタンはソースコードのみなので、そちらではありません）。
+
 ## 適用範囲に関する重要な注意（実機検証で確認済み）
 RetroCertが直せるのは「証明書の失効・不足だけが原因で接続できないサイト」に限られます。
 実機PowerMac G4のSafariで検証した結果:

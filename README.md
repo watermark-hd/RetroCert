@@ -26,6 +26,12 @@ This is designed to be used by an arbitrary number of old-machine owners,
 so the client itself (the whole runnable toolkit) is also distributed from
 the VPS.
 
+**Download:** the pre-configured client (pointed at this project's own VPS) is on
+[oldmac.policy-log.jp/apps/retrocert](https://oldmac.policy-log.jp/apps/retrocert),
+or grab the same `RetroCert.zip` from the
+[Releases page](https://github.com/watermark-hd/RetroCert/releases) here on GitHub —
+not the green "Code" button above, which only has the source.
+
 ## Important: real-world scope (verified on actual hardware)
 
 RetroCert can only fix "sites that fail purely because of an expired /
